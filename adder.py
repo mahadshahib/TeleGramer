@@ -1,4 +1,4 @@
-from telethon.sync import TelegramClient
+from telethon.sync import TelegramClient , connection
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
@@ -20,7 +20,8 @@ print (gr+" ║ ├┤ │  ├┤ ║ ╦  ╠═╣ ││ ││├┤ ├┬
 print (re+" ╩ └─┘┴─┘└─┘╚═╝  ╩ ╩─┴┘─┴┘└─┘┴└─")
 
 print (cy+"version : 1.01")
-print (cy+"Instagram: @thebhikandeshmukh")
+print (cy+"Make sure you Subscribed Termux Professor On Youtube")
+print (cy+"www.youtube.com/c/TermuxProfessorYT")
 
 print (re+"NOTE :")
 print ("1. Telegram only allow to add 200 members in group by one user.")
@@ -36,7 +37,7 @@ try:
     api_id = cpass['cred']['id']
     api_hash = cpass['cred']['hash']
     phone = cpass['cred']['phone']
-    client = TelegramClient(phone, api_id, api_hash)
+    client = TelegramClient(phone, api_id, api_hash,connection=connection.ConenectionTcpMTProxyRandomizedIntermediate,proxy=('168.119.254.58',443,'7gAAAAAAAAAAAAAAAAAAAABkbC5nb29nbGUuY29t'))
 except KeyError:
     os.system('clear')
     banner()
@@ -118,7 +119,7 @@ for user in users:
     except PeerFloodError:
         print("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
         print("Waiting {} seconds".format(SLEEP_TIME_2))
-        time.sleep(SLEEP_TIME_2)
+        time.sleep(60)
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
         print("Waiting for 5 Seconds...")
