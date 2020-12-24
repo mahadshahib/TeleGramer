@@ -1,10 +1,11 @@
-from telethon.sync import TelegramClient
+from telethon.sync import TelegramClient, connection
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
 import os, sys
 import configparser
 import csv
 import time
+
 
 re="\033[1;31m"
 gr="\033[1;32m"
@@ -17,8 +18,8 @@ def banner():
 {re} ╩ {cy}└─┘┴─┘└─┘{re}╚═╝  ╚═╝{cy}└─┘┴└─┴ ┴┴  └─┘┴└─
 
               Version : 1.01
- {re}Follow on
-   {cy}Instagram: @thebhikandeshmukh
+ {re}Subscribe Termux Professor on Youtube.
+   {cy}www.youtube.com/c/TermuxProfessorYT
         """)
 
 cpass = configparser.RawConfigParser()
@@ -28,7 +29,7 @@ try:
     api_id = cpass['cred']['id']
     api_hash = cpass['cred']['hash']
     phone = cpass['cred']['phone']
-    client = TelegramClient(phone, api_id, api_hash)
+    client = TelegramClient(phone, api_id, api_hash,connection=connection.ConenectionTcpMTProxyRandomizedIntermediate,proxy=('168.119.254.58',443,'7gAAAAAAAAAAAAAAAAAAAABkbC5nb29nbGUuY29t'))
 except KeyError:
     os.system('clear')
     banner()
@@ -100,4 +101,4 @@ with open("members.csv","w",encoding='UTF-8') as f:
             last_name= ""
         name= (first_name + ' ' + last_name).strip()
         writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])      
-print(gr+'[+] Members scraped successfully. Instagram: @thebhikandeshmukh')
+print(gr+'[+] Members scraped successfully. Subscribe Termux Professor Youtube Channel For Add Members')
