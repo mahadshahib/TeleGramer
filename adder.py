@@ -1,4 +1,4 @@
-from telethon.sync import TelegramClient , connection
+from telethon.sync import TelegramClient
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
@@ -37,7 +37,7 @@ try:
     api_id = cpass['cred']['id']
     api_hash = cpass['cred']['hash']
     phone = cpass['cred']['phone']
-    client = TelegramClient(phone, api_id, api_hash,connection=connection.ConenectionTcpMTProxyRandomizedIntermediate,proxy=('168.119.254.58',443,'7gAAAAAAAAAAAAAAAAAAAABkbC5nb29nbGUuY29t'))
+    client = TelegramClient(phone, api_id, api_hash)
 except KeyError:
     os.system('clear')
     banner()
